@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { useNavigation } from "expo-router";
-import SearchBar from "../components/SearchBar";
-import useResults from "../hooks/useResults";
-import ResultsList from "../components/ResultsList";
-import { Business } from "../types/yelpInfo";
+import { useNavigation } from 'expo-router';
+import SearchBar from '../components/SearchBar';
+import useResults from '../hooks/useResults';
+import ResultsList from '../components/ResultsList';
+import { Business } from '../types/yelpInfo';
 
 const SearchScreen = () => {
     const [term, setTerm] = useState<string>('');
@@ -20,8 +20,8 @@ const SearchScreen = () => {
     const navigation = useNavigation();
     useEffect(() => {
         navigation.setOptions({
-            title: "Business Search",
-        })
+            title: 'Business Search'
+        });
     }, []);
 
     return (
@@ -37,14 +37,26 @@ const SearchScreen = () => {
             {errorMessage ? <Text>{errorMessage}</Text> : null}
             <Text>We have found {results.length} results!</Text>
             <ScrollView>
-                <ResultsList businesses={filterResultsByPrice('$')} title="Cost Effective ($)" />
-                <ResultsList businesses={filterResultsByPrice('$$')} title="Bit Pricier ($$)" />
-                <ResultsList businesses={filterResultsByPrice('$$$')} title="Big Spender ($$$)" />
-                <ResultsList businesses={filterResultsByPrice('$$$$')} title="Insanity ($$$$)" />
+                <ResultsList
+                    businesses={filterResultsByPrice('$')}
+                    title="Cost Effective ($)"
+                />
+                <ResultsList
+                    businesses={filterResultsByPrice('$$')}
+                    title="Bit Pricier ($$)"
+                />
+                <ResultsList
+                    businesses={filterResultsByPrice('$$$')}
+                    title="Big Spender ($$$)"
+                />
+                <ResultsList
+                    businesses={filterResultsByPrice('$$$$')}
+                    title="Insanity ($$$$)"
+                />
             </ScrollView>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     header: {

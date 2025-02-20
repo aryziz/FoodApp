@@ -8,10 +8,10 @@ export interface Business {
         zip_code: string;
         country: string;
         state: string;
-    }
+    };
     image_url: string;
-    rating: number,
-    review_count: number,
+    rating: number;
+    review_count: number;
     phone: string;
 }
 

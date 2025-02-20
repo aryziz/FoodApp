@@ -1,17 +1,27 @@
-import React from "react";
+import React from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
-import { Business } from "../types/yelpInfo";
+import { Business } from '../types/yelpInfo';
 
 interface ResultsDetailProps {
-    business: Business
+    business: Business;
 }
 
-const ResultsDetail: React.FC<ResultsDetailProps> = (props: ResultsDetailProps) => {
-    return <View style={styles.container}>
-        <Image style={styles.image} source={{ uri: props.business.image_url }} />
-        <Text style={styles.name}>{props.business.name}</Text>
-        <Text>{props.business.rating}/5 Stars, {props.business.review_count} Reviews</Text>
-    </View>
+const ResultsDetail: React.FC<ResultsDetailProps> = (
+    props: ResultsDetailProps
+) => {
+    return (
+        <View style={styles.container}>
+            <Image
+                style={styles.image}
+                source={{ uri: props.business.image_url }}
+            />
+            <Text style={styles.name}>{props.business.name}</Text>
+            <Text>
+                {props.business.rating}/5 Stars, {props.business.review_count}{' '}
+                Reviews
+            </Text>
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({

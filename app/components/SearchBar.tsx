@@ -11,16 +11,21 @@ interface SearchBarProps {
 const SearchBar = (props: SearchBarProps) => {
     return (
         <View style={styles.backgroundStyle}>
-            <Feather name="search" size={30} style={styles.iconStyle} testID="search-icon" />
+            <Feather
+                name="search"
+                size={30}
+                style={styles.iconStyle}
+                testID="search-icon"
+            />
             <TextInput
-                autoCapitalize='none'
+                autoCapitalize="none"
                 autoCorrect={false}
-                placeholder='Search'
+                placeholder="Search"
                 style={styles.inputStyle}
                 value={props.term}
                 onChangeText={props.onTermChange}
                 onEndEditing={props.onTermSubmit}
-                testID='searchInput'
+                testID="searchInput"
             />
         </View>
     );

@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { YelpSearchInfo, Business } from "../types/yelpInfo";
+import { YelpSearchInfo, Business } from '../types/yelpInfo';
 import yelp from '../api/yelp';
 
-export default (): [(searchTerm: string) => Promise<void>, Business[], string] => {
+export default (): [
+    (searchTerm: string) => Promise<void>,
+    Business[],
+    string
+] => {
     const [results, setResults] = useState<Business[]>([]);
     const [errorMessage, setErrorMessage] = useState<string>('');
     const searchApi = async (searchTerm: string, location: string | null) => {
@@ -18,12 +22,12 @@ export default (): [(searchTerm: string) => Promise<void>, Business[], string] =
         } catch (error) {
             setErrorMessage('Something went wrong.');
         }
-    }
+    };
 
     useEffect(() => {
         const requestInterceptor = yelp.interceptors.request.use(
             (config) => {
-                console.log("Request being sent:", {
+                console.log('Request being sent:', {
                     method: config.method,
                     url: config.url,
                     baseURL: config.baseURL,
@@ -42,4 +46,4 @@ export default (): [(searchTerm: string) => Promise<void>, Business[], string] =
     }, []);
 
     return [searchApi, results, errorMessage];
-}
+};

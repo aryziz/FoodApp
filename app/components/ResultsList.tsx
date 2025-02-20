@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { Business } from "../types/yelpInfo";
-import ResultsDetail from "./ResultsDetail";
+import { Business } from '../types/yelpInfo';
+import ResultsDetail from './ResultsDetail';
 
 interface ResultsProps {
     title: string;
@@ -17,13 +17,13 @@ const ResultsList = (props: ResultsProps) => {
                 data={props.businesses}
                 keyExtractor={(result) => result.id}
                 renderItem={({ item }) => {
-                    return <ResultsDetail business={item} />
+                    return <ResultsDetail business={item} />;
                 }}
                 showsHorizontalScrollIndicator={false}
             />
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     titleStyle: {
