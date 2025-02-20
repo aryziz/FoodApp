@@ -10,16 +10,17 @@
     "web": "expo start --web",
     "test": "jest",
     "lint": "expo lint",
-    "prettier": "prettier --write .",
-    "prepare": "husky"
+    "prettier:fix": "prettier --write ."
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "jest": {
     "preset": "jest-expo"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx eslint . --fix"
-    }
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
