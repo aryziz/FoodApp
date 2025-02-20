@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar should match JSON-yfied snapshot 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F0EEEE",
+      "borderRadius": 5,
+      "flexDirection": "row",
+      "height": 50,
+      "marginHorizontal": 15,
+      "marginTop": 10,
+    }
+  }
+>
+  <Text />
+  <TextInput
+    autoCapitalize="none"
+    autoCorrect={false}
+    onChangeText={[Function]}
+    onEndEditing={[Function]}
+    placeholder="Search"
+    style={
+      {
+        "flex": 1,
+        "fontSize": 18,
+      }
+    }
+    testID="searchInput"
+    value=""
+  />
+</View>
+`;
