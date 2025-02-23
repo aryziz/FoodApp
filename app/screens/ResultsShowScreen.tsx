@@ -28,6 +28,7 @@ const ResultsShowScreen = () => {
                 data={result.photos}
                 keyExtractor={(photo) => photo}
                 renderItem={({ item }) => {
+                    if (item == null) return null;
                     return (
                         <Image
                             style={styles.imageStyles}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { YelpSearchInfo, Business } from '../types/yelpInfo';
 import yelp from '../api/yelp';
 
@@ -18,7 +18,7 @@ export default (): [
                 params: {
                     limit: 50,
                     term: searchTerm,
-                    location: location || 'oslo'
+                    location: location || 'grimstad'
                 }
             });
             setResults(response.data.businesses);
@@ -27,27 +27,6 @@ export default (): [
             setErrorMessage('Something went wrong.');
         }
     };
-
-    useEffect(() => {
-        const requestInterceptor = yelp.interceptors.request.use(
-            (config) => {
-                console.log('Request being sent:', {
-                    method: config.method,
-                    url: config.url,
-                    baseURL: config.baseURL,
-                    headers: config.headers,
-                    params: config.params,
-                    data: config.data
-                });
-                return config;
-            },
-            (error) => Promise.reject(error)
-        );
-
-        return () => {
-            yelp.interceptors.request.eject(requestInterceptor);
-        };
-    }, []);
 
     return [searchApi, results, errorMessage];
 };

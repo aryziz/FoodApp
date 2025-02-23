@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, StyleSheet, ScrollView } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import { useNavigation } from 'expo-router';
 import SearchBar from '../components/SearchBar';
 import useResults from '../hooks/useResults';
@@ -20,13 +20,12 @@ const SearchScreen = () => {
     const navigationOps = useNavigation();
     useEffect(() => {
         navigationOps.setOptions({
-            title: 'Business Search'
+            title: 'Restaurant Search'
         });
     }, []);
 
     return (
         <>
-            <Text style={styles.header}>Search Screen</Text>
             <SearchBar
                 term={term}
                 onTermChange={setTerm}
@@ -56,11 +55,5 @@ const SearchScreen = () => {
         </>
     );
 };
-
-const styles = StyleSheet.create({
-    header: {
-        fontSize: 23
-    }
-});
 
 export default SearchScreen;
