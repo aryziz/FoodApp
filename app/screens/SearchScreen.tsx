@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Text, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from 'expo-router';
 import SearchBar from '../components/SearchBar';
 import useResults from '../hooks/useResults';
@@ -17,15 +17,15 @@ const SearchScreen = () => {
         });
     };
 
-    const navigation = useNavigation();
+    const navigationOps = useNavigation();
     useEffect(() => {
-        navigation.setOptions({
+        navigationOps.setOptions({
             title: 'Business Search'
         });
     }, []);
 
     return (
-        <View>
+        <>
             <Text style={styles.header}>Search Screen</Text>
             <SearchBar
                 term={term}
@@ -35,7 +35,6 @@ const SearchScreen = () => {
                 }}
             />
             {errorMessage ? <Text>{errorMessage}</Text> : null}
-            <Text>We have found {results.length} results!</Text>
             <ScrollView>
                 <ResultsList
                     businesses={filterResultsByPrice('$')}
@@ -54,7 +53,7 @@ const SearchScreen = () => {
                     title="Insanity ($$$$)"
                 />
             </ScrollView>
-        </View>
+        </>
     );
 };
 

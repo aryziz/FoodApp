@@ -8,9 +8,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "jest",
+    "test": "jest --watchAll --detectOpenHandles",
     "lint": "expo lint",
-    "prettier:fix": "prettier --write ."
+    "prettier": "prettier '**/*.{js,jsx,ts,tsx}' --write"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [

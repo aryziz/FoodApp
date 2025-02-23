@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { YelpSearchInfo, Business } from '../types/yelpInfo';
 import yelp from '../api/yelp';
 
 export default (): [
-    (searchTerm: string) => Promise<void>,
+    (searchTerm: string, location?: string | undefined) => Promise<void>,
     Business[],
     string
 ] => {
     const [results, setResults] = useState<Business[]>([]);
     const [errorMessage, setErrorMessage] = useState<string>('');
-    const searchApi = async (searchTerm: string, location: string | null) => {
+    const searchApi = async (
+        searchTerm: string,
+        location?: string | undefined
+    ) => {
         try {
             const response = await yelp.get<YelpSearchInfo>('/search', {
                 params: {
@@ -20,6 +23,7 @@ export default (): [
             });
             setResults(response.data.businesses);
         } catch (error) {
+            console.error(error);
             setErrorMessage('Something went wrong.');
         }
     };

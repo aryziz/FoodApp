@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-    fireEvent,
-    screen,
-    render,
-    waitFor
-} from '@testing-library/react-native';
+import { fireEvent, render, waitFor } from '@testing-library/react-native';
 import SearchBar from '../SearchBar';
 
 jest.mock('expo-font');
