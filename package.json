@@ -9,6 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll --detectOpenHandles",
+    "test:easy": "jest",
     "lint": "expo lint",
     "prettier": "prettier '**/*.{js,jsx,ts,tsx}' --write"
   },
